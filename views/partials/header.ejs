@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>YelpCamp</title>
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">        
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <!-- creating a navbar plane -->
+            <div class="container">
+                <!-- to center things -->
+                <div class="navbar-header">
+                    <!-- gives the main heading of the navbar -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mycollapse1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <!-- for the 3 lines on the button -->
+                    </button>
+                    <!-- button for the collapse -->
+        
+                    <!-- <a href="#" class="navbar-brand "><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> IMGS</a> -->
+                    <a href="/" class="navbar-brand ">YelpCamp</a>
+                    <!--name and anchor for the navbar header -->
+                </div>
+        
+                <div class="collapse navbar-collapse" id="mycollapse1">
+                    <!-- this line makes sure that anything that is inside this div does not appear when window is resized -->
+                     <ul class="nav navbar-nav navbar-right">
+                        <!-- adds elements to the right -->
+                        <%if(!currentUser){%>
+                        
+                        <li><a href="/register">Sign Up</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <% }
+                        else{ %>
+                            <li><a href="/campgrounds"> Welcome <%= currentUser.username %> </a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+    </nav>
+    <div class="container">
+        <% if( error.length > 0 ){ %>
+        <div class="alert alert-danger" role="alert"><%=error%></div>
+       <% } %>
+     <% if( success.length > 0 ){ %>
+        <div class="alert alert-success" role="alert"><%=success%></div>
+        <% } %>
+    </div>
+    
