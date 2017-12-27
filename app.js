@@ -14,7 +14,7 @@ app.use(flash());
      
 // Mongoose initialisations
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/YelpCampv3",{useMongoClient: true});
+mongoose.connect(process.env.DATABASEURL,{useMongoClient: true});
 
 //body parser
 app.use(bodyParser.urlencoded({extended : true}));
